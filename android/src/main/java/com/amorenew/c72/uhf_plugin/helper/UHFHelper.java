@@ -168,7 +168,7 @@ public class UHFHelper {
         int ptr = 2;
         if(mReader != null){
             return mReader.writeData(accessPwd,bank,
-                    Integer.parseInt(ptr),Integer.parseInt(cnt),writeData);
+                    ptr,cnt,writeData);
         }
         return false;
     }
