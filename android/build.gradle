@@ -32,6 +32,12 @@ android {
         disable 'InvalidPackage'
     }
     buildToolsVersion '30.0.2'
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -44,3 +50,5 @@ dependencies {
     //implementation files('/Users/apple/Desktop/sdks/flutter/bin/cache/artifacts/engine/android-x64/flutter.jar')
 
 }
+
+

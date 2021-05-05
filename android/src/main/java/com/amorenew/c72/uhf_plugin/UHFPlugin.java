@@ -36,6 +36,8 @@ public class UHFPlugin implements FlutterPlugin, MethodCallHandler {
     private static final String CHANNEL_SETWORKAREA = "setWorkArea";
     private static final String CHANNEL_ConnectedStatus = "ConnectedStatus";
     private static final String CHANNEL_TagsStatus = "TagsStatus";
+    private static final String CHANNEL_WRITEBLOCKDATA = "writeBlockData";
+    private static final String ChANNEL_EmptyTagData = "emptyTagData";
     private static PublishSubject<Boolean> connectedStatus = PublishSubject.create();
     private static PublishSubject<String> tagsStatus = PublishSubject.create();
 
@@ -213,6 +215,13 @@ public class UHFPlugin implements FlutterPlugin, MethodCallHandler {
             case CHANNEL_SETWORKAREA:
                 String workArea = call.argument("value");
                 result.success(UHFHelper.getInstance().setWorkArea(workArea));
+                break;
+            case CHANNEL_WRITEBLOCKDATA:
+                String writeData = call.argument("value");
+                result.success(UHFHelper.getInstance().setUpTagData(writeData));
+                break;
+            case ChANNEL_EmptyTagData:
+                result.success(UHFHelper.getInstance().eraseTag());
                 break;
             default:
                 result.notImplemented();

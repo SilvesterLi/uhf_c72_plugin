@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.rscja.deviceapi.RFIDWithUHFUART;
 import com.rscja.deviceapi.entity.UHFTAGInfo;
+import com.rscja.deviceapi.interfaces.IUHF;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -224,6 +225,38 @@ public class UHFHelper {
                 }
             }
         }
+    }
+
+    public boolean setUpTagData(String writeData) {
+        //int Bank_EPC  1
+        //int Bank_TID	2
+        //int Bank_USER	3
+        String accessPwd = "00000000";
+        writeData = strTo16(writeData);
+        int cnt = writeData.length()/4;
+        int bank = IUHF.Bank_EPC;
+        int ptr = 2;
+        if(mReader != null){
+            return mReader.writeData(accessPwd,bank,ptr,cnt,writeData);
+        }
+        return false;
+    }
+
+    public static String strTo16(String s) {
+        String str = "";
+        for (int i = 0; i < s.length(); i++) {
+            int ch = (int) s.charAt(i);
+            String s4 = Integer.toHexString(ch);
+            str = str + s4;
+        }
+        return str;
+    }
+
+    public boolean eraseTag() {
+        if(mReader != null){
+            return mReader.eraseData("00000000",IUHF.Bank_EPC,2,8);
+        }
+        return false;
     }
 
 }

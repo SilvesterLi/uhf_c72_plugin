@@ -41,6 +41,10 @@ class UhfC72Plugin {
     return _channel.invokeMethod('isEmptyTags');
   }
 
+  static Future<bool?> get emptyTagData async {
+    return _channel.invokeMethod('emptyTagData');
+  }
+
   static Future<bool?> get connect async {
     return _channel.invokeMethod('connect');
   }
@@ -55,5 +59,10 @@ class UhfC72Plugin {
 
   static Future<bool?> setWorkArea(String value) async {
     return _channel.invokeMethod('setWorkArea', <String, String>{'value': value});
+  }
+
+
+  static Future<bool?> writeBlockData(String value) async{
+    return _channel.invokeMethod('writeBlockData',<String, String>{'value':value});
   }
 }
