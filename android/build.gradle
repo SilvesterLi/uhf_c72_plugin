@@ -33,11 +33,7 @@ android {
     }
     buildToolsVersion '30.0.2'
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
+  
 }
 
 dependencies {
