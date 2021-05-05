@@ -165,7 +165,7 @@ public class UHFHelper {
         int cnt = 8;
         int bank = 1;
         bank = IUHF.Bank_EPC;
-        writeData = "42343137353037393438353035313932";
+       
         int ptr = 2;
         if(mReader != null){
             return mReader.writeData(accessPwd,bank,
