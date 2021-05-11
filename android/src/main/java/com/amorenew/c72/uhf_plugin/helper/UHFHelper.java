@@ -162,7 +162,7 @@ public class UHFHelper {
         //int Bank_TID	2
         //int Bank_USER	3
         String accessPwd = "00000000";
-        int cnt = 4;
+        int cnt = writeData.length()/4;
         int bank = 1;
         bank = IUHF.Bank_EPC;
        
