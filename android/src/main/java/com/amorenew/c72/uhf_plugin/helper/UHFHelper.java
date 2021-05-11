@@ -113,7 +113,7 @@ public class UHFHelper {
 
     public boolean eraseTag() {
         if(mReader != null){
-            return mReader.eraseData("00000000",IUHF.Bank_EPC,2,8);
+            return mReader.eraseData("00000000",IUHF.Bank_EPC,2,4);
         }
         return false;
     }
@@ -162,7 +162,7 @@ public class UHFHelper {
         //int Bank_TID	2
         //int Bank_USER	3
         String accessPwd = "00000000";
-        int cnt = 8;
+        int cnt = 4;
         int bank = 1;
         bank = IUHF.Bank_EPC;
        
