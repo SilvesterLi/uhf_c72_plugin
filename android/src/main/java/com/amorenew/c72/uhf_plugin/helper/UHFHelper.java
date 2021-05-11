@@ -113,7 +113,7 @@ public class UHFHelper {
 
     public boolean eraseTag() {
         if(mReader != null){
-            return mReader.eraseData("00000000",IUHF.Bank_EPC,2,4);
+            return mReader.eraseData("00000000",IUHF.Bank_EPC,6,4);
         }
         return false;
     }
